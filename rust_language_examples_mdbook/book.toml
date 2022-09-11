@@ -1,0 +1,13 @@
+[book]
+authors = ["Jim Carr"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Rust Language Examples"
+
+[build]
+build-dir = "../docs"
+create-missing = true
+
+[output.html.playground]
+editable = true
