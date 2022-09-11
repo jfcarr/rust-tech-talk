@@ -1,0 +1,1363 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Rust Language Examples</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="content/getting_started/getting_started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/getting_started/setup.html"><strong aria-hidden="true">1.1.</strong> Setup</a></li><li class="chapter-item expanded "><a href="content/getting_started/cargo.html"><strong aria-hidden="true">1.2.</strong> Cargo</a></li><li class="chapter-item expanded "><a href="content/getting_started/crates_registry.html"><strong aria-hidden="true">1.3.</strong> Crates Registry</a></li></ol></li><li class="chapter-item expanded "><a href="content/declarations_and_data_types/declarations_and_data_types.html"><strong aria-hidden="true">2.</strong> Declarations and Data Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/declarations_and_data_types/declarations.html"><strong aria-hidden="true">2.1.</strong> Declarations</a></li><li class="chapter-item expanded "><a href="content/declarations_and_data_types/scalar_types.html"><strong aria-hidden="true">2.2.</strong> Scalar Types</a></li><li class="chapter-item expanded "><a href="content/declarations_and_data_types/compound_types/compound_types.html"><strong aria-hidden="true">2.3.</strong> Compound Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/declarations_and_data_types/compound_types/tuple.html"><strong aria-hidden="true">2.3.1.</strong> Tuple</a></li><li class="chapter-item expanded "><a href="content/declarations_and_data_types/compound_types/array.html"><strong aria-hidden="true">2.3.2.</strong> Array</a></li></ol></li><li class="chapter-item expanded "><a href="content/declarations_and_data_types/custom_types/custom_types.html"><strong aria-hidden="true">2.4.</strong> Custom Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/declarations_and_data_types/custom_types/structures.html"><strong aria-hidden="true">2.4.1.</strong> Structures</a></li><li class="chapter-item expanded "><a href="content/declarations_and_data_types/custom_types/enums.html"><strong aria-hidden="true">2.4.2.</strong> Enums</a></li></ol></li><li class="chapter-item expanded "><a href="content/declarations_and_data_types/standard_library_types.html"><strong aria-hidden="true">2.5.</strong> Standard Library Types</a></li><li class="chapter-item expanded "><a href="content/declarations_and_data_types/standard_library_misc.html"><strong aria-hidden="true">2.6.</strong> Standard Library - Misc</a></li></ol></li><li class="chapter-item expanded "><a href="content/flow_control/flow_control.html"><strong aria-hidden="true">3.</strong> Flow Control</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/flow_control/if_else.html"><strong aria-hidden="true">3.1.</strong> if/else</a></li><li class="chapter-item expanded "><a href="content/flow_control/loop.html"><strong aria-hidden="true">3.2.</strong> loop</a></li><li class="chapter-item expanded "><a href="content/flow_control/while.html"><strong aria-hidden="true">3.3.</strong> while</a></li><li class="chapter-item expanded "><a href="content/flow_control/for_range.html"><strong aria-hidden="true">3.4.</strong> for and range</a></li><li class="chapter-item expanded "><a href="content/flow_control/match.html"><strong aria-hidden="true">3.5.</strong> match</a></li></ol></li><li class="chapter-item expanded "><a href="content/functions/functions.html"><strong aria-hidden="true">4.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/functions/methods.html"><strong aria-hidden="true">4.1.</strong> Methods</a></li><li class="chapter-item expanded "><a href="content/functions/traits.html"><strong aria-hidden="true">4.2.</strong> Traits</a></li></ol></li><li class="chapter-item expanded "><a href="content/ownership/ownership.html"><strong aria-hidden="true">5.</strong> Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/ownership/raii.html"><strong aria-hidden="true">5.1.</strong> RAII</a></li><li class="chapter-item expanded "><a href="content/ownership/ownership_and_moves.html"><strong aria-hidden="true">5.2.</strong> Ownership and Moves</a></li><li class="chapter-item expanded "><a href="content/ownership/borrowing.html"><strong aria-hidden="true">5.3.</strong> Borrowing</a></li><li class="chapter-item expanded "><a href="content/ownership/lifetimes.html"><strong aria-hidden="true">5.4.</strong> Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="content/modules.html"><strong aria-hidden="true">6.</strong> Modules</a></li><li class="chapter-item expanded "><a href="content/crates.html"><strong aria-hidden="true">7.</strong> Crates</a></li><li class="chapter-item expanded "><a href="content/generics.html"><strong aria-hidden="true">8.</strong> Generics</a></li><li class="chapter-item expanded "><a href="content/macros.html"><strong aria-hidden="true">9.</strong> Macros</a></li><li class="chapter-item expanded "><a href="content/error_handling/error_handling.html"><strong aria-hidden="true">10.</strong> Error Handling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/error_handling/panic.html"><strong aria-hidden="true">10.1.</strong> panic</a></li><li class="chapter-item expanded "><a href="content/error_handling/option.html"><strong aria-hidden="true">10.2.</strong> Option</a></li><li class="chapter-item expanded "><a href="content/result.html"><strong aria-hidden="true">10.3.</strong> Result</a></li></ol></li><li class="chapter-item expanded "><a href="content/testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li class="chapter-item expanded "><a href="content/unsafe_code.html"><strong aria-hidden="true">12.</strong> Unsafe Code</a></li><li class="chapter-item expanded "><a href="content/language_interoperability/language_interoperability.html"><strong aria-hidden="true">13.</strong> Language Interoperability</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/language_interoperability/c_interop.html"><strong aria-hidden="true">13.1.</strong> C Interop</a></li><li class="chapter-item expanded "><a href="content/language_interoperability/pyo3.html"><strong aria-hidden="true">13.2.</strong> PyO3</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/language_interoperability/rust_from_python.html"><strong aria-hidden="true">13.2.1.</strong> Rust from Python</a></li><li class="chapter-item expanded "><a href="content/language_interoperability/python_from_rust.html"><strong aria-hidden="true">13.2.2.</strong> Python from Rust</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="content/ascii_table.html">ASCII Table</a></li><li class="chapter-item expanded affix "><a href="content/utility_functions.html">Utility Functions</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Language Examples</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="setup"><a class="header" href="#setup">Setup</a></h1>
+<p>The best way to set up and maintain a Rust installation is to use the <code>rustup</code> tool.</p>
+<p>If you're running Linux, it's a one-line command.  Run this, and follow the prompts:</p>
+<pre><code class="language-bash">curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+</code></pre>
+<p>If you are installing in Windows, you may also need to install the Visual Studio Build Tools.  The <code>rustup</code> CLI will prompt you if this is the case.</p>
+<blockquote>
+<p>After you've installed Rust, you can update to the latest version at any time by running <code>rustup update</code>.</p>
+</blockquote>
+<p>After rustup finishes, test your installation by running <code>rustc --version</code>.  You should see something like this:</p>
+<pre><code>rustc 1.63.0 (4b91a6ea7 2022-08-08)
+</code></pre>
+<p>If you'd like to actually test the compiler, create a file named <code>main.rs</code>, with the following contents:</p>
+<pre><code class="language-rust noplayground">fn main() {
+	println!(&quot;Hello, world!&quot;);
+}
+</code></pre>
+<p>Then, run this:</p>
+<pre><code class="language-bash">rustc main.rs
+</code></pre>
+<p>This will produce a binary file called <code>main</code>.  When you run it, you should see this:</p>
+<pre><code>Hello, world!
+</code></pre>
+<p>Learn more:  <a href="https://www.rust-lang.org/learn/get-started">https://www.rust-lang.org/learn/get-started</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cargo"><a class="header" href="#cargo">Cargo</a></h1>
+<p>Cargo is the Rust build tool and package manager.  It allows you to do things like this:</p>
+<div class="table-wrapper"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>cargo new</code></td><td>Create a new Rust project</td></tr>
+<tr><td><code>cargo build</code></td><td>Build a project</td></tr>
+<tr><td><code>cargo run</code></td><td>Run a project</td></tr>
+<tr><td><code>cargo test</code></td><td>Execute unit tests in a project</td></tr>
+<tr><td><code>cargo doc</code></td><td>Build documentation for a project</td></tr>
+<tr><td><code>cargo publish</code></td><td>Publish a project to <code>crates.io</code></td></tr>
+</tbody></table>
+</div>
+<p>For example, to create new Rust binary project, run the following:</p>
+<pre><code class="language-bash">cargo new [project_name]
+</code></pre>
+<p>This will scaffold a new project with the following structure:</p>
+<pre><code>[project_name]
+.
+├── Cargo.toml
+└── src
+    └── main.rs
+</code></pre>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/cargo/">https://doc.rust-lang.org/stable/cargo/</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="crates-registry"><a class="header" href="#crates-registry">Crates Registry</a></h1>
+<p>The Crates Registry (located at <a href="https://crates.io/">https://crates.io/</a>) is a catalog of thousands of Rust libraries that you can add to your Rust projects.  It is comparable to the library and package catalogs for other languages:</p>
+<div class="table-wrapper"><table><thead><tr><th>Language</th><th>Catalog</th></tr></thead><tbody>
+<tr><td>.NET</td><td>Nuget</td></tr>
+<tr><td>Node.js</td><td>npm Registry</td></tr>
+<tr><td>Perl</td><td>CPAN</td></tr>
+<tr><td>Python</td><td>PyPI</td></tr>
+<tr><td>Ruby</td><td>RubyGems</td></tr>
+</tbody></table>
+</div>
+<p>If, for example, you'd like to add the <code>rand</code> library to your project, you can execute Cargo in your project directory like this:</p>
+<pre><code class="language-bash">cargo add rand
+</code></pre>
+<p>This will add an entry for the library to your project's Cargo.toml file.  You could also add the entry to Cargo.toml manually:</p>
+<pre><code class="language-toml">[dependencies]
+rand = &quot;0.8.5&quot;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="declarations-and-data-types"><a class="header" href="#declarations-and-data-types">Declarations and Data Types</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="declarations"><a class="header" href="#declarations">Declarations</a></h1>
+<h2 id="statically-typed"><a class="header" href="#statically-typed">Statically Typed</a></h2>
+<p>Rust is statically typed.  Variables must be declared.  If a type is not specified, Rust will try to infer it.</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let my_variable1: i32 = 5;  // Explicit i32
+	let my_variable2 = 5;		// Inferred i32
+
+	println!(&quot;The value of my_variable1 is {}&quot;, my_variable1);
+	println!(&quot;The value of my_variable2 is {}&quot;, my_variable2);
+}
+</code></pre></pre>
+<h2 id="type-conversion"><a class="header" href="#type-conversion">Type Conversion</a></h2>
+<p>There is no implicit type conversion in Rust:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	// This won't work, because the 5.0 will be treated as a float:
+	let my_variable: i32 = 5.0;
+
+	println!(&quot;The value of my_variable is {}&quot;, my_variable);
+}
+</code></pre></pre>
+<p>But, you can use casting for explicit conversion:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let my_variable: i32 = 5.0 as i32;
+
+	println!(&quot;The value of my_variable is {}&quot;, my_variable);
+}
+</code></pre></pre>
+<h2 id="mutability"><a class="header" href="#mutability">Mutability</a></h2>
+<p>Variables are immutable by default:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let my_variable: i32 = 5;
+
+	println!(&quot;The value of my_variable is {}&quot;, my_variable);
+
+	let my_variable = 10;	// This works, because 'let' creates a new instance of
+							// the variable.
+
+	println!(&quot;The value of my_variable is {}&quot;, my_variable);
+
+	my_variable = 15;  	// This does NOT work, because it attempts to assign a value
+						// to the existing instance of the immutable variable.
+
+	println!(&quot;The value of my_variable is {}&quot;, my_variable);
+}
+</code></pre></pre>
+<p>If you want variables to be mutable, use the <code>mut</code> keyword:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let mut my_variable: i32 = 5;
+
+	println!(&quot;The value of my_variable is {}&quot;, my_variable);
+
+	my_variable = 10;
+
+	println!(&quot;The value of my_variable is {}&quot;, my_variable);
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="scalar-types"><a class="header" href="#scalar-types">Scalar Types</a></h1>
+<p>The scalar types in Rust are integers, floating point, chars, and booleans.</p>
+<p>Learn more: <a href="https://doc.rust-lang.org/book/ch03-02-data-types.html#scalar-types">https://doc.rust-lang.org/book/ch03-02-data-types.html#scalar-types</a></p>
+<h2 id="integer"><a class="header" href="#integer">Integer</a></h2>
+<p>Integer types:</p>
+<div class="table-wrapper"><table><thead><tr><th>Length</th><th>Signed</th><th>Unsigned</th></tr></thead><tbody>
+<tr><td>8-bit</td><td>i8</td><td>u8</td></tr>
+<tr><td>16-bit</td><td>i16</td><td>u16</td></tr>
+<tr><td>32-bit</td><td>i32</td><td>u32</td></tr>
+<tr><td>64-bit</td><td>i64</td><td>u64</td></tr>
+<tr><td>128-bit</td><td>i128</td><td>u128</td></tr>
+<tr><td>arch</td><td>isize</td><td>usize</td></tr>
+</tbody></table>
+</div>
+<p>Integer literals:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let decimal_value:i32 = 98_222;
+	println!(&quot;Decimal 98_222 is integer {}&quot;, decimal_value);
+
+	let hex_value: i32 = 0xff;
+	println!(&quot;Hex 0xff is integer {}&quot;, hex_value);
+
+	let octal_value: i32 = 0o77;
+	println!(&quot;Octal 0o77 is integer {}&quot;, octal_value);
+
+	let binary_value: i32 = 0b0111;
+	println!(&quot;Binary 0b0111 is integer {}&quot;, binary_value);
+
+	let byte_value: u8 = b'A';
+	println!(&quot;Byte b'A' is integer {}&quot;, byte_value);
+}
+</code></pre></pre>
+<h2 id="floating-point"><a class="header" href="#floating-point">Floating Point</a></h2>
+<p>Rust supports two floating point types: <code>f32</code> (32 bits) and <code>f64</code> (64 bits).</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let float_var1: f32 = 10.0;
+
+	let float_var2 = 20.0;  // defaults to f64
+}
+</code></pre></pre>
+<h2 id="character"><a class="header" href="#character">Character</a></h2>
+<p>The char type is Rust's most primitive alphabetic type.</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let my_char = 'a';
+
+	println!(&quot;The value of my_char is {}&quot;, my_char);
+}
+</code></pre></pre>
+<p>In Rust, char type assignments are enclosed in single quotes, and strings are enclosed in double quotes:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let mut my_char = 'a';
+	let my_string = &quot;a&quot;;
+
+	my_char = &quot;b&quot;;  // This will fail!
+}
+</code></pre></pre>
+<h2 id="boolean"><a class="header" href="#boolean">Boolean</a></h2>
+<p>Boolean types in Rust have two possible values: <code>true</code> and <code>false</code>.  They are one byte in size.</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let my_bool1 = true;			// inferred type
+	let my_bool2: bool = false;		// explicit type annotation
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="compound-types"><a class="header" href="#compound-types">Compound Types</a></h1>
+<p>The two primitive compound types in Rust are <code>tuples</code> and <code>arrays</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tuple"><a class="header" href="#tuple">Tuple</a></h1>
+<p>A tuple provides a means of grouping several values with a variety of types into one compound type.</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let my_tuple1 = (20, 27.4);
+	let my_tuple2: (i32, f64) = (10, 12.22);
+
+	println!(&quot;{}&quot;, my_tuple1);  // This will fail: The Display trait used by println!
+								// doesn't know how to handle tuples.
+}
+</code></pre></pre>
+<p>Unsupported display types can be handled like this:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let my_tuple1 = (20, 27.4);					// Inferred type
+	let my_tuple2: (i32, f64) = (10, 12.22);	// Explicit type
+
+	println!(&quot;Flexible formatting print: {:?}&quot;, my_tuple1);		// Specify ':?' as
+																// the format
+	println!(&quot;Pretty print: {:#?}&quot;, my_tuple1);					// Specify ':#?' for
+																// pretty-print
+}
+</code></pre></pre>
+<p>Learn more: <a href="https://doc.rust-lang.org/book/ch03-02-data-types.html#the-tuple-type">https://doc.rust-lang.org/book/ch03-02-data-types.html#the-tuple-type</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="array"><a class="header" href="#array">Array</a></h1>
+<p>Arrays in Rust are similar to tuples, except that all elements must have the same type.  They are fixed length.</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let my_array1 = [1,2,3,4,5];			// Inferred type and length
+	let my_array2: [i32; 5] = [1,2,3,4,5];	// Explicit type and length
+
+	println!(&quot;The contents of my_array1 are {:?}&quot;, my_array1);
+	println!(&quot;The contents of my_array2 are {:?}&quot;, my_array2);
+}
+</code></pre></pre>
+<p>Learn more: <a href="https://doc.rust-lang.org/book/ch03-02-data-types.html#the-array-type">https://doc.rust-lang.org/book/ch03-02-data-types.html#the-array-type</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="custom-types"><a class="header" href="#custom-types">Custom Types</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="structures"><a class="header" href="#structures">Structures</a></h1>
+<p>Rust supports three types of structures:</p>
+<ul>
+<li>Named tuples</li>
+<li>Classic C structs</li>
+<li>Unit structs (useful for generics)</li>
+</ul>
+<p>Tuple example:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	struct TupleExample(i32, f32);
+
+	// Instanciate:
+	let tuple_example = TupleExample(1, 2.2);
+
+	// Access the fields by position:
+	println!(&quot;tuple_example contains {:?} and {:?}&quot;, tuple_example.0, tuple_example.1);
+
+    // Destructure:
+	let TupleExample(integer_field, decimal_field) = tuple_example;
+    
+	println!(&quot;tuple_example contains {:?} and {:?}&quot;, integer_field, decimal_field);
+}
+</code></pre></pre>
+<p>Classic example:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	struct ClassicExample {
+		string_field: String,
+		integer_field: u8,
+	}
+
+	let classic_example: ClassicExample = 
+	 ClassicExample { string_field: String::from(&quot;A String value&quot;), integer_field: 10 };
+
+	println!(&quot;classic_example values: ({}, {})&quot;,
+	 classic_example.string_field, classic_example.integer_field);
+}
+</code></pre></pre>
+<p>Unit example:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	struct UnitExample;
+
+	let _unit_example = UnitExample;
+}
+</code></pre></pre>
+<p>Unit structs have no fields, and are useful in generics.</p>
+<blockquote>
+<p>Note the use of the underscore in <code>_unit_example</code>, indicating to the compiler that the variable is intentionally unused.</p>
+</blockquote>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/custom_types/structs.html">https://doc.rust-lang.org/stable/rust-by-example/custom_types/structs.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="enums"><a class="header" href="#enums">Enums</a></h1>
+<p>There are a few variants of the enum type.  Here's the simplest:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	enum EventStatus {
+		OK,
+		Failed
+	}
+
+	let my_result = EventStatus::OK;
+
+	match my_result {
+		EventStatus::OK     =&gt; println!(&quot;Finished successfully!&quot;),
+		EventStatus::Failed =&gt; println!(&quot;Failed...&quot;),
+	}
+}
+</code></pre></pre>
+<p>Learn more:  <a href="https://doc.rust-lang.org/stable/rust-by-example/custom_types/enum.html">https://doc.rust-lang.org/stable/rust-by-example/custom_types/enum.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="standard-library-types"><a class="header" href="#standard-library-types">Standard Library Types</a></h1>
+<p>The Rust <code>std</code> library expands on primitives with a large number of custom types.</p>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/std.html">https://doc.rust-lang.org/stable/rust-by-example/std.html</a></p>
+<h2 id="strings"><a class="header" href="#strings">Strings</a></h2>
+<p>Rust supports two string types: <code>String</code> and <code>&amp;str</code>.  A <code>String</code> is a vector of bytes (<code>Vec&lt;u8&gt;</code>), and <code>&amp;str</code> is a slice (<code>&amp;[u8]</code>) pointing to a UTF-8 sequence.</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	// Create a reference to a string in read-only memory:
+	let string_slice: &amp;'static str = &quot;This is a string reference&quot;;
+	println!(&quot;The value of string_slice is {}&quot;, string_slice);
+
+	let mut vector_string: String = &quot;This is a string vector&quot;.to_string();
+	println!(&quot;The value of vector_string is {}&quot;, vector_string);
+}
+</code></pre></pre>
+<blockquote>
+<p><strong>[Exercise]</strong> What happens if you try to assign a new value to string_slice?</p>
+</blockquote>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/std/str.html">https://doc.rust-lang.org/stable/rust-by-example/std/str.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="standard-library---misc"><a class="header" href="#standard-library---misc">Standard Library - Misc</a></h1>
+<p>The standard library provides additional complex types to support things like:</p>
+<ul>
+<li>Threads</li>
+<li>Channels</li>
+<li>File I/O</li>
+<li>Program Arguments</li>
+<li>Foreign Function Interface</li>
+</ul>
+<blockquote>
+<p>You can find enhanced alternatives for many of these by visiting <a href="https://crates.io/">crates.io</a>.  For example, <code>clap</code> is a popular crate for working with program arguments.</p>
+</blockquote>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/std_misc.html">https://doc.rust-lang.org/stable/rust-by-example/std_misc.html</a></p>
+<h2 id="file-io---open"><a class="header" href="#file-io---open">File I/O - Open</a></h2>
+<pre><code class="language-rust noplayground">use std::fs::File;
+use std::io::prelude::*;
+use std::path::Path;
+
+fn main() {
+    // Create a path to the desired file
+    let path = Path::new(&quot;hello.txt&quot;);
+    let display = path.display();
+
+    // Open the path in read-only mode, returns `io::Result&lt;File&gt;`
+    let mut file = match File::open(&amp;path) {
+        Err(why) =&gt; panic!(&quot;couldn't open {}: {}&quot;, display, why),
+        Ok(file) =&gt; file,
+    };
+
+    // Read the file contents into a string, returns `io::Result&lt;usize&gt;`
+    let mut s = String::new();
+    match file.read_to_string(&amp;mut s) {
+        Err(why) =&gt; panic!(&quot;couldn't read {}: {}&quot;, display, why),
+        Ok(_) =&gt; print!(&quot;{} contains:\n{}&quot;, display, s),
+    }
+
+    // `file` goes out of scope, and the &quot;hello.txt&quot; file gets closed
+}
+</code></pre>
+<p>(Code example is copied directly from <a href="https://doc.rust-lang.org/stable/rust-by-example/std_misc/file/open.html">here</a>.)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="flow-control"><a class="header" href="#flow-control">Flow Control</a></h1>
+<p>Rust provides a comprehensive set of keywords for managing flow of control.</p>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/flow_control.html">https://doc.rust-lang.org/stable/rust-by-example/flow_control.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ifelse"><a class="header" href="#ifelse">if/else</a></h1>
+<p>Note that the boolean condition does <em>not</em> have to be surrounded by parentheses.</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let conditional: i32 = 10;
+
+	if conditional == 10 {
+		println!(&quot;The value is 10&quot;);
+	} else {
+		println!(&quot;The value is not 10&quot;);
+	}
+}
+</code></pre></pre>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/flow_control/if_else.html">https://doc.rust-lang.org/stable/rust-by-example/flow_control/if_else.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="loop"><a class="header" href="#loop">loop</a></h1>
+<p>The <code>loop</code> keyword provides an infinite loop.</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let mut count:i32 = 0;
+
+	loop {
+		count += 1;
+
+		if count == 5 {
+			break;
+		}
+
+		if count == 3 {
+			continue;
+		}
+
+		println!(&quot;Iteration: {}&quot;, count);
+	}
+}
+</code></pre></pre>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/flow_control/loop.html">https://doc.rust-lang.org/stable/rust-by-example/flow_control/loop.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="while"><a class="header" href="#while">while</a></h1>
+<p>Loops while a condition is true.</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let mut count:i32 = 1;
+
+	while count &lt; 5 {
+		println!(&quot;Iteration: {}&quot;, count);
+
+		count += 1;
+	}
+}
+</code></pre></pre>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/flow_control/while.html">https://doc.rust-lang.org/stable/rust-by-example/flow_control/while.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="for-and-range"><a class="header" href="#for-and-range">for and range</a></h1>
+<p>The <code>for in</code> construct can be used to iterate through an <code>Iterator</code>.  For a simple <code>Iterator</code>, a <code>range</code> can be used.</p>
+<blockquote>
+<p>The upper value of the range is not inclusive.</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	for item in 1..5 {
+		println!(&quot;Iteration: {}&quot;, item);
+	}
+}
+</code></pre></pre>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/flow_control/for.html">https://doc.rust-lang.org/stable/rust-by-example/flow_control/for.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="match"><a class="header" href="#match">match</a></h1>
+<p>The <code>match</code> keyword provides pattern matching similar to a C <code>switch</code>.</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	let number:i32 = 10;
+
+	match number {
+		1 =&gt; println!(&quot;The value is one!&quot;),
+		2 | 3 | 4 =&gt;
+		 println!(&quot;The value is two, three, or four (actual value: {})&quot;, number),
+		5..=8 =&gt;
+		 println!(&quot;The value is five, six, seven, or eight (actual value: {})&quot;, number),
+		_ =&gt; println!(&quot;No special handling for {}&quot;, number),
+	}
+}
+</code></pre></pre>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/flow_control/match.html">https://doc.rust-lang.org/stable/rust-by-example/flow_control/match.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
+<p>Functions are declared with the <code>fn</code> keyword.  Arguments are type-annotated.  If the function returns a value, it must be specified after an arrow.</p>
+<blockquote>
+<p>The order of function definitions are not dependent on <code>main()</code>.</p>
+</blockquote>
+<p>Let's start with some code that needs refactoring:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	println!(&quot;Hello, Jim!&quot;);
+	println!(&quot;Hello, John!&quot;);
+
+	let square_of_two:i32 = 2 * 2;
+	let square_of_four:i32 = 4 * 4;
+
+	println!(&quot;2 squared is {}&quot;, square_of_two);
+	println!(&quot;4 squared is {}&quot;, square_of_four);
+}
+</code></pre></pre>
+<p>We have two instances of code duplication that can be refactored into functions:</p>
+<ol>
+<li>The &quot;Hello&quot; greeting, and</li>
+<li>The calculation of squares.</li>
+</ol>
+<p>Let's start with &quot;Hello&quot;:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn say_hello(name: String) {
+	println!(&quot;Hello, {}!&quot;, name);
+}
+
+fn main() {
+	say_hello(&quot;Jim&quot;.to_string());
+	say_hello(&quot;John&quot;.to_string());
+
+	let square_of_two:i32 = 2 * 2;
+	let square_of_four:i32 = 4 * 4;
+
+	println!(&quot;2 squared is {}&quot;, square_of_two);
+	println!(&quot;4 squared is {}&quot;, square_of_four);
+}
+</code></pre></pre>
+<p>Next, we'll add a function to handle calculating square values.  We need a return value for this.</p>
+<pre><pre class="playground"><code class="language-rust editable">fn say_hello(name: String) {
+	println!(&quot;Hello, {}!&quot;, name);
+}
+
+fn squared(input: i32) -&gt; i32 {
+	return input * input;
+}
+
+fn main() {
+	say_hello(&quot;Jim&quot;.to_string());
+	say_hello(&quot;John&quot;.to_string());
+
+	let square_of_two:i32 = 2 * 2;
+	let square_of_four:i32 = 4 * 4;
+
+	println!(&quot;2 squared is {}&quot;, squared(2));
+	println!(&quot;4 squared is {}&quot;, squared(4));
+}
+</code></pre></pre>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/fn.html">https://doc.rust-lang.org/stable/rust-by-example/fn.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="methods"><a class="header" href="#methods">Methods</a></h1>
+<p>Functions can be connected to a type.  They can be defined on the type (&quot;associated functions&quot;) or called on an instance of a type (&quot;methods&quot;).</p>
+<p>Associated functions are generally used like constructors:</p>
+<pre><pre class="playground"><code class="language-rust editable">struct Data {
+	x: f64,
+	y: f64,
+}
+
+impl Data {
+	fn new(x: f64, y: f64) -&gt; Data {
+		Data {x: x, y: y}
+	}
+}
+
+fn main() {
+	let data = Data::new(2.0, 2.0);
+
+	println!(&quot;The value of data.x is {}&quot;, data.x);
+	println!(&quot;The value of data.y is {}&quot;, data.y);
+}
+</code></pre></pre>
+<p>Methods operate on an instance of a type:</p>
+<pre><pre class="playground"><code class="language-rust editable">struct Data {
+	x: f64,
+	y: f64,
+}
+
+impl Data {
+	fn new(x: f64, y: f64) -&gt; Data {
+		Data {x: x, y: y}
+	}
+
+	// Methods use the built-in argument &amp;self, which provides a reference to
+	// an instance of the type.
+	fn product(&amp;self) -&gt; f64 {
+		return self.x * self.y;
+	}
+}
+
+fn main() {
+	let data = Data::new(2.0, 2.0);
+
+	println!(&quot;The value of data.x is {}&quot;, data.x);
+	println!(&quot;The value of data.y is {}&quot;, data.y);
+
+	println!(&quot;The product of x and y is {}&quot;, data.product());
+}
+</code></pre></pre>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/fn/methods.html">https://doc.rust-lang.org/stable/rust-by-example/fn/methods.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="traits"><a class="header" href="#traits">Traits</a></h1>
+<p>A <code>trait</code> is a collection of methods defined for an unknown type: <code>Self</code>.  They define functionality meant to be shared with multiple types, similar to interfaces and abstract classes.</p>
+<p>Without a trait, using associated functions instead:</p>
+<pre><pre class="playground"><code class="language-rust editable">trait DataTrait {
+	fn new(x: f64, y: f64) -&gt; Self;
+	fn product(&amp;self) -&gt; f64;
+}
+
+struct Data {
+	x: f64,
+	y: f64,
+}
+
+impl DataTrait for Data {
+	fn new(x: f64, y: f64) -&gt; Data {
+		Data {x: x, y: y}
+	}
+
+	fn product(&amp;self) -&gt; f64 {
+		return self.x * self.y;
+	}
+}
+
+fn main() {
+	let mut data: Data = DataTrait::new(2.0, 2.0);
+
+	println!(&quot;The value of data.x is {}&quot;, data.x);
+	println!(&quot;The value of data.y is {}&quot;, data.y);
+
+	println!(&quot;The product of x and y is {}&quot;, data.product());
+}
+</code></pre></pre>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/trait.html">https://doc.rust-lang.org/stable/rust-by-example/trait.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ownership"><a class="header" href="#ownership">Ownership</a></h1>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/book/ch04-00-understanding-ownership.html">https://doc.rust-lang.org/stable/book/ch04-00-understanding-ownership.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="raii"><a class="header" href="#raii">RAII</a></h1>
+<p>Rust enforces RAII (Resource Acquisition Is Initialization), so whenever an object goes out of scope, its destructor is called and its owned resources are freed.</p>
+<pre><pre class="playground"><code class="language-rust editable">fn create_box() {
+    // Allocate an integer on the heap
+    let _box1 = Box::new(3i32);
+
+    // `_box1` is destroyed here, and memory gets freed
+}
+
+fn main() {
+    // Allocate an integer on the heap
+    let _box2 = Box::new(5i32);
+
+    // A nested scope:
+    {
+        // Allocate an integer on the heap
+        let _box3 = Box::new(4i32);
+
+        // `_box3` is destroyed here, and memory gets freed
+    }
+
+    // Creating lots of boxes just for fun
+    // There's no need to manually free memory!
+    for _ in 0u32..1_000 {
+        create_box();
+    }
+
+    // `_box2` is destroyed here, and memory gets freed
+}
+</code></pre></pre>
+<p>Details here: <a href="https://doc.rust-lang.org/stable/rust-by-example/scope/raii.html">https://doc.rust-lang.org/stable/rust-by-example/scope/raii.html</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ownership-and-moves"><a class="header" href="#ownership-and-moves">Ownership and Moves</a></h1>
+<p>Resources can have only one owner.  When ownership is transferred to a new owner, the previous owner can no longer be used.</p>
+<pre><pre class="playground"><code class="language-rust editable">// This function takes ownership of the heap allocated memory
+fn destroy_box(c: Box&lt;i32&gt;) {
+    println!(&quot;Destroying a box that contains {}&quot;, c);
+
+    // `c` is destroyed and the memory freed
+}
+
+fn main() {
+    // _Stack_ allocated integer
+    let x = 5u32;
+
+    // *Copy* `x` into `y` - no resources are moved
+    let y = x;
+
+    // Both values can be independently used
+    println!(&quot;x is {}, and y is {}&quot;, x, y);
+
+    // `a` is a pointer to a _heap_ allocated integer
+    let a = Box::new(5i32);
+
+    println!(&quot;a contains: {}&quot;, a);
+
+    // *Move* `a` into `b`
+    let b = a;
+    // The pointer address of `a` is copied (not the data) into `b`.
+    // Both are now pointers to the same heap allocated data, but
+    // `b` now owns it.
+    
+    // Error! `a` can no longer access the data, because it no longer owns the
+    // heap memory
+    //println!(&quot;a contains: {}&quot;, a);
+    // TODO ^ Try uncommenting this line
+
+    // This function takes ownership of the heap allocated memory from `b`
+    destroy_box(b);
+
+    // Since the heap memory has been freed at this point, this action would
+    // result in dereferencing freed memory, but it's forbidden by the compiler
+    // Error! Same reason as the previous Error
+    //println!(&quot;b contains: {}&quot;, b);
+    // TODO ^ Try uncommenting this line
+}
+</code></pre></pre>
+<p>Details here: <a href="https://doc.rust-lang.org/stable/rust-by-example/scope/move.html">https://doc.rust-lang.org/stable/rust-by-example/scope/move.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="borrowing"><a class="header" href="#borrowing">Borrowing</a></h1>
+<p>To access data without taking ownership of it, <strong>borrowing</strong> can be used.  For this, objects are passed by reference instead of value.</p>
+<pre><pre class="playground"><code class="language-rust editable">// This function takes ownership of a box and destroys it
+fn eat_box_i32(boxed_i32: Box&lt;i32&gt;) {
+    println!(&quot;Destroying box that contains {}&quot;, boxed_i32);
+}
+
+// This function borrows an i32
+fn borrow_i32(borrowed_i32: &amp;i32) {
+    println!(&quot;This int is: {}&quot;, borrowed_i32);
+}
+
+fn main() {
+    // Create a boxed i32, and a stacked i32
+    let boxed_i32 = Box::new(5_i32);
+    let stacked_i32 = 6_i32;
+
+    // Borrow the contents of the box. Ownership is not taken,
+    // so the contents can be borrowed again.
+    borrow_i32(&amp;boxed_i32);
+    borrow_i32(&amp;stacked_i32);
+
+    {
+        // Take a reference to the data contained inside the box
+        let _ref_to_i32: &amp;i32 = &amp;boxed_i32;
+
+        // Error!
+        // Can't destroy `boxed_i32` while the inner value is borrowed later in scope.
+        eat_box_i32(boxed_i32);
+        // FIXME ^ Comment out this line
+
+        // Attempt to borrow `_ref_to_i32` after inner value is destroyed
+        borrow_i32(_ref_to_i32);
+        // `_ref_to_i32` goes out of scope and is no longer borrowed.
+    }
+
+    // `boxed_i32` can now give up ownership to `eat_box` and be destroyed
+    eat_box_i32(boxed_i32);
+}
+</code></pre></pre>
+<p>Details here: <a href="https://doc.rust-lang.org/stable/rust-by-example/scope/borrow.html">https://doc.rust-lang.org/stable/rust-by-example/scope/borrow.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lifetimes"><a class="header" href="#lifetimes">Lifetimes</a></h1>
+<p>A variable's lifetime is a construct used by the compiler's borrow checker to track scopes, and ensure all borrows are valid.</p>
+<pre><pre class="playground"><code class="language-rust editable">// Lifetimes are annotated below with lines denoting the creation
+// and destruction of each variable.
+// `i` has the longest lifetime because its scope entirely encloses 
+// both `borrow1` and `borrow2`. The duration of `borrow1` compared 
+// to `borrow2` is irrelevant since they are disjoint.
+fn main() {
+    let i = 3; // Lifetime for `i` starts. ────────────────┐
+    //                                                     │
+    { //                                                   │
+        let borrow1 = &amp;i; // `borrow1` lifetime starts. ──┐│
+        //                                                ││
+        println!(&quot;borrow1: {}&quot;, borrow1); //              ││
+    } // `borrow1 ends. ──────────────────────────────────┘│
+    //                                                     │
+    //                                                     │
+    { //                                                   │
+        let borrow2 = &amp;i; // `borrow2` lifetime starts. ──┐│
+        //                                                ││
+        println!(&quot;borrow2: {}&quot;, borrow2); //              ││
+    } // `borrow2` ends. ─────────────────────────────────┘│
+    //                                                     │
+}   // Lifetime ends. ─────────────────────────────────────┘
+</code></pre></pre>
+<p>Details here: <a href="https://doc.rust-lang.org/stable/rust-by-example/scope/lifetime.html">https://doc.rust-lang.org/stable/rust-by-example/scope/lifetime.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="modules"><a class="header" href="#modules">Modules</a></h1>
+<p>Modules provide a means for splitting code into logical units.  They are similar to namespaces.</p>
+<p>Code without modules:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn say_hello() {
+	println!(&quot;Hello!&quot;);
+}
+
+fn say_goodbye() {
+	println!(&quot;Goodbye!&quot;);
+}
+
+fn main() {
+	say_hello();
+	say_goodbye();
+}
+</code></pre></pre>
+<p>Code organized as a module:</p>
+<pre><pre class="playground"><code class="language-rust editable">mod greetings {
+	pub fn say_hello() {
+		println!(&quot;Hello!&quot;);
+	}
+
+	pub fn say_goodbye() {
+		println!(&quot;Goodbye!&quot;);
+	}
+}
+
+fn main() {
+	greetings::say_hello();
+	greetings::say_goodbye();
+}
+</code></pre></pre>
+<blockquote>
+<p>Functions in a module are private by default.  You use the <code>pub</code> keyword to make them accessible.</p>
+</blockquote>
+<p>A use declaration can be used to bind a full function path to a new name.  This is particularly useful for deeply nested modules:</p>
+<pre><pre class="playground"><code class="language-rust editable">use greetings::say_hello as hello;
+
+mod greetings {
+	pub fn say_hello() {
+		println!(&quot;Hello!&quot;);
+	}
+}
+
+fn main() {
+	hello();
+}
+</code></pre></pre>
+<p>Modules can be mapped to file hierarchies, allowing you to break up functional units into files.</p>
+<p>Assuming you have the following functions in a file named <code>greetings.rs</code>:</p>
+<pre><code class="language-rust noplayground">pub fn say_hello() {
+	println!(&quot;Hello!&quot;);
+}
+
+pub fn say_goodbye() {
+	println!(&quot;Goodbye!&quot;);
+}
+</code></pre>
+<p>You can then access them as follows:</p>
+<pre><code class="language-rust noplayground">mod greetings;
+
+fn main() {
+	greetings::say_hello();
+	greetings::say_goodbye();
+}
+</code></pre>
+<p>Learn more:  <a href="https://doc.rust-lang.org/stable/rust-by-example/mod.html">https://doc.rust-lang.org/stable/rust-by-example/mod.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="crates"><a class="header" href="#crates">Crates</a></h1>
+<p>A crate is a compilation unit.  Crates can be compiled as binaries or libraries.</p>
+<p>In an empty directory, create two subdirectories: <code>lib</code> and <code>bin</code>.  Then, in the <code>lib</code> directory, create a library crate by creating a file named <code>greeting.rs</code>, with the following contents:</p>
+<pre><code class="language-rust noplayground">pub fn say_hello() {
+	say_greeting(&quot;Hello&quot;.to_string());
+}
+
+pub fn say_goodbye() {
+	say_greeting(&quot;Goodbye&quot;.to_string());
+}
+
+fn say_greeting(prefix: String) {
+	println!(&quot;{}!&quot;, prefix);
+}
+</code></pre>
+<p>Build the library with the following command:</p>
+<pre><code class="language-bash">rustc --crate-type=lib greeting.rs
+</code></pre>
+<p>This will create a file named <code>libgreeting.rlib</code>.</p>
+<p>Next, in the bin directory, create a file named <code>client.rs</code>, with the following contents:</p>
+<pre><code class="language-rust noplayground">fn main() {
+    greeting::say_hello();
+
+    greeting::say_goodbye();
+}
+</code></pre>
+<p>Build the client (and link it to the library) with this:</p>
+<pre><code class="language-bash">rustc client.rs --extern greeting=../lib/libgreeting.rlib --edition=2018
+</code></pre>
+<p>This will create an executable named <code>client</code>.  When you run it, you'll see this:</p>
+<pre><code>Hello!
+Goodbye!
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="generics"><a class="header" href="#generics">Generics</a></h1>
+<p>Rust provides support for <em>generics</em>: abstractions of concrete types.  Generics provide a way to reduce code duplication.</p>
+<h2 id="duplicate-code"><a class="header" href="#duplicate-code">Duplicate Code</a></h2>
+<p>We'll start with a simpler concept: extraction of functions.  Consider the following:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+	println!(&quot;Hello!&quot;);
+	println!(&quot;I'm printing a number: 1&quot;);
+
+	println!(&quot;Hello!&quot;);
+	println!(&quot;I'm printing a string: text&quot;);
+}
+</code></pre></pre>
+<h2 id="functions-1"><a class="header" href="#functions-1">Functions</a></h2>
+<p>In the code block above, we have two very similar sets of code lines.  It makes sense to refactor that duplication into a function.  But, in order to provide the flexibility of printing numbers and strings, we have to create <em>two</em> functions:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn print_a_number(input_number: i32) {
+	println!(&quot;Hello!&quot;);
+	println!(&quot;I'm printing a number: {}&quot;, input_number);
+}
+
+fn print_a_string(input_string: String) {
+	println!(&quot;Hello!&quot;);
+	println!(&quot;I'm printing a string: {}&quot;, input_string);
+}
+
+fn main() {
+	print_a_number(1);
+
+	print_a_string(&quot;text&quot;.to_string());
+}
+</code></pre></pre>
+<h2 id="a-generic"><a class="header" href="#a-generic">A Generic</a></h2>
+<p>To accomplish our task in a single function, we can pass the value to printed as a generic representation <code>&lt;T&gt;</code>:</p>
+<blockquote>
+<p>I cheated a little bit in order to keep this example simple: My argument type is being restricted to values that implement <code>std::fmt::Display</code>.</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust editable">fn print_a_value&lt;T&gt;(input_value: T) where T: std::fmt::Display {
+	println!(&quot;I'm printing a value: {}&quot;, input_value);
+}
+
+fn main() {
+	print_a_value(1);
+
+	print_a_value(&quot;text&quot;.to_string());
+}
+</code></pre></pre>
+<hr />
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/book/ch10-00-generics.html">https://doc.rust-lang.org/stable/book/ch10-00-generics.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="macros"><a class="header" href="#macros">Macros</a></h1>
+<p>You can use Rust's macro system to implement <a href="https://codedocs.org/what-is/metaprogramming">metaprogramming</a>.</p>
+<p>A macro looks and acts very much like a function, except that a macro name ends with a bang !, and instead of generating a function call, macros are expanded into source code that is compiled along with the rest of the program.</p>
+<p>Here's simple greeting functionality implemented as a function:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn say_hello(name: String) {
+	println!(&quot;Hello, {}!&quot;, name);
+}
+
+fn main() {
+	say_hello(&quot;John&quot;.to_string());
+}
+</code></pre></pre>
+<p>And here's the same functionality implemented as a macro:</p>
+<pre><pre class="playground"><code class="language-rust editable">macro_rules! say_hello {
+	($name:expr) =&gt; {
+		println!(&quot;Hello, {}!&quot;, $name);
+	};
+}
+
+fn main() {
+	say_hello!(&quot;John&quot;.to_string());
+}
+</code></pre></pre>
+<p>The $name expression in the example above is one of many kinds of <code>designators</code> supported by Rust macros.  This provides a level of abstraction somewhat similar to <code>generics</code>, with more flexibility than concrete functions.</p>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/macros.html">https://doc.rust-lang.org/stable/rust-by-example/macros.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="error-handling"><a class="header" href="#error-handling">Error Handling</a></h1>
+<p>Rust provides a variety of ways to deal with error conditions.  At a high level, simplified:</p>
+<div class="table-wrapper"><table><thead><tr><th>Construct</th><th>Typically Used For</th></tr></thead><tbody>
+<tr><td><code>panic</code></td><td>Unrecoverable errors.</td></tr>
+<tr><td><code>Option</code> type</td><td>When a value is optional, and the lack of an option may or may not be an error condition.</td></tr>
+<tr><td><code>Result</code></td><td>There is a problem, and it should be dealt with.</td></tr>
+</tbody></table>
+</div>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/error.html">https://doc.rust-lang.org/stable/rust-by-example/error.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="panic"><a class="header" href="#panic">panic</a></h1>
+<pre><pre class="playground"><code class="language-rust editable">fn say_hello(name: String) {
+	if name == &quot;Todd&quot; {
+		panic!(&quot;You can't trust a Todd!&quot;);
+	} else {
+		println!(&quot;Hello, {}!&quot;, name);
+	}
+}
+
+fn main() {
+	say_hello(&quot;Jim&quot;.to_string());
+	
+	say_hello(&quot;Todd&quot;.to_string());
+
+	say_hello(&quot;Sam&quot;.to_string()); // This will never be reached.
+}
+</code></pre></pre>
+<p>Learn more: <a href="https://doc.rust-lang.org/stable/rust-by-example/error/panic.html">https://doc.rust-lang.org/stable/rust-by-example/error/panic.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="option"><a class="header" href="#option">Option</a></h1>
+<p>Option gives us more control over multiple conditions.</p>
+<pre><pre class="playground"><code class="language-rust editable">fn say_hello(name: Option&lt;&amp;str&gt;) {
+	match name {
+		Some(&quot;Jim&quot;) =&gt; println!(&quot;Jim is a great guy!&quot;),
+		Some(&quot;Todd&quot;) =&gt; panic!(&quot;You can't trust a Todd!&quot;),
+		Some(inner) =&gt; println!(&quot;Hello {}!&quot;, inner),
+		None =&gt; println!(&quot;I don't know who you are...&quot;),
+	}
+}
+
+fn main() {
+	let jim = Some(&quot;Jim&quot;);
+	let john = Some(&quot;John&quot;);
+	let todd = Some(&quot;Todd&quot;);
+	let sam = Some(&quot;Sam&quot;);
+
+	say_hello(jim);
+	say_hello(john);
+	say_hello(todd);
+	say_hello(sam);  // This will never be reached.
+}
+</code></pre></pre>
+<blockquote>
+<p>What happens if we don't cover <code>None</code>?</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="result"><a class="header" href="#result">Result</a></h1>
+<p><code>Result</code> provides an enhancement over <code>Option</code> in that it describes a possible <em>error</em> instead of a possible <em>absence</em>.</p>
+<pre><pre class="playground"><code class="language-rust editable">use std::num::ParseIntError;
+
+fn parse_integer(input_value: &amp;str) -&gt; Result&lt;i32, ParseIntError&gt; {
+	match input_value.parse::&lt;i32&gt;() {
+		Ok(n) =&gt; return Ok(n),
+		Err(e) =&gt; return Err(e),
+	};
+}
+
+fn main() {
+	let result = parse_integer(&quot;1&quot;);
+	println!(&quot;{:?}&quot;, result);
+
+	let result = parse_integer(&quot;text&quot;);
+	println!(&quot;{:?}&quot;, result);
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing"><a class="header" href="#testing">Testing</a></h1>
+<p>Rust supports <a href="https://doc.rust-lang.org/stable/rust-by-example/testing/unit_testing.html">unit testing</a>, <a href="https://doc.rust-lang.org/stable/rust-by-example/testing/doc_testing.html">documentation testing</a>, and <a href="https://doc.rust-lang.org/stable/rust-by-example/testing/integration_testing.html">integration testing</a>.</p>
+<h2 id="unit-testing"><a class="header" href="#unit-testing">Unit Testing</a></h2>
+<p>main.rs</p>
+<pre><code class="language-rust noplayground">fn main() {
+    println!(&quot;10 + 5 is {}&quot;, add(10, 5));
+}
+
+fn add(first_number: i32, second_number: i32) -&gt; i32 {
+    return first_number + second_number;
+}
+
+#[cfg(test)]
+mod tests;
+</code></pre>
+<p>tests.rs</p>
+<pre><code class="language-rust noplayground">use super::*;
+
+#[test]
+fn test_add() {
+    assert_eq!(add(10, 5), 15);
+}
+</code></pre>
+<p>Running <code>cargo test</code> in the project root directory will invoke all of the test functions, and display the results.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unsafe-code"><a class="header" href="#unsafe-code">Unsafe Code</a></h1>
+<p>The default behavior of Rust is to provide as many safety checks-and-balances as possible, to protect you from unsafe code.  But, sometimes it's necessary to bypass these protections, for things like:</p>
+<ul>
+<li>dereferencing raw pointers</li>
+<li>calling functions over FFI</li>
+<li>accessing hardware addresses directly, for IOT/embedded programming</li>
+</ul>
+<p>To write unsafe code, you simply wrap the code in an <code>unsafe</code> block, like this:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+    let raw_p: *const u32 = &amp;10;
+
+    unsafe {
+        assert!(*raw_p == 10);
+    }
+}
+</code></pre></pre>
+<p>Learn more:  <a href="https://doc.rust-lang.org/stable/rust-by-example/unsafe.html">https://doc.rust-lang.org/stable/rust-by-example/unsafe.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="language-interoperability"><a class="header" href="#language-interoperability">Language Interoperability</a></h1>
+<p>Rust supports language interoperability in a couple of ways:</p>
+<ul>
+<li>Through the built-in Foreign Function Interface (FFI), for calling C functions, and</li>
+<li>With 3rd-party library support, e.g., PyO3 for calling Python functions.</li>
+</ul>
+<p>Learn more about FFI: <a href="https://doc.rust-lang.org/stable/rust-by-example/std_misc/ffi.html">https://doc.rust-lang.org/stable/rust-by-example/std_misc/ffi.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="c-interop"><a class="header" href="#c-interop">C Interop</a></h1>
+<p>C code interoperability is accomplished via the Foreign Function Interface.</p>
+<p>Let's start with a simple C source file, along with its header file:</p>
+<p>simplemath.c</p>
+<pre><code class="language-c">#include &quot;simplemath.h&quot;
+
+float square(float input) { return input * input; }
+</code></pre>
+<p>simplemath.h</p>
+<pre><code class="language-c">float square(float input);
+</code></pre>
+<p>To use this from Rust, we need to first compile the C source, to create <code>simplemath.o</code> (the object file):</p>
+<pre><code class="language-bash">gcc -c simplemath.c
+</code></pre>
+<p>Then, create an .ar archive file (<code>libsimplemath.a</code>) from <code>simplemath.o</code>:</p>
+<pre><code class="language-bash">ar rcs libsimplemath.a simplemath.o
+</code></pre>
+<p>Next, we'll create a Rust file that will call the C library:</p>
+<p>main.rs</p>
+<pre><code class="language-rust noplayground">/* This 'extern' block describes the C library function we want to call. */
+extern &quot;C&quot; {
+    fn square(x: f32) -&gt; f32;
+}
+
+fn main() {
+	/* Our input to the external function */
+    let input_value: f32 = 10.0;
+
+	/* Since we're calling an external function, it must be marked as unsafe */
+    unsafe {
+        println!(&quot;The square of {} is {}&quot;, input_value, square(input_value));
+    }
+}
+</code></pre>
+<p>Finally, we compile our Rust crate, and link the external library:</p>
+<pre><code class="language-bash">rustc -l static=simplemath -L . main.rs
+</code></pre>
+<p>This produces a binary named <code>main</code>, and when we run it, we get this result:</p>
+<pre><code>./main
+
+The square of 10 is 100
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pyo3"><a class="header" href="#pyo3">PyO3</a></h1>
+<p>The PyO3 project provides support for creating Python extension modules in Rust, and also for running Python code from a Rust binary.</p>
+<p>PyO3 on GitHub: <a href="https://github.com/PyO3/PyO3">https://github.com/PyO3/PyO3</a></p>
+<p>PyO3 User Guide:  <a href="https://pyo3.rs">https://pyo3.rs</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rust-from-python"><a class="header" href="#rust-from-python">Rust from Python</a></h1>
+<p>To create our Rust-based Python module, we'll be making use of <code>maturin</code>, a build/publish tool.</p>
+<p>First, we'll create a directory for our project, and <code>cd</code> to it:</p>
+<pre><code class="language-bash">mkdir string_sum
+
+cd string_sum
+</code></pre>
+<p>Next, create a Python virtual environment, and activate it:</p>
+<pre><code class="language-bash">python3 -m venv .env
+
+source .env/bin/activate
+</code></pre>
+<p>Install <code>maturin</code> into the Python environment:</p>
+<pre><code class="language-bash">pip3 install maturin
+</code></pre>
+<p>Scaffold your project:</p>
+<pre><code class="language-bash">maturin init
+</code></pre>
+<p>Select <code>pyo3</code> for your bindings:</p>
+<pre><code>? 🤷 Which kind of bindings to use? ›
+❯ pyo3
+  rust-cpython
+  cffi
+  bin
+</code></pre>
+<p>A starter project will be generated, with sample code for <code>Cargo.toml</code> and <code>src/lib.rs</code>.  The code provides a simple function accepting two numbers as input, adding them together, and returns the result as a string:</p>
+<pre><code class="language-rust noplayground">use pyo3::prelude::*;
+
+/// Formats the sum of two numbers as string.
+#[pyfunction]
+fn sum_as_string(a: usize, b: usize) -&gt; PyResult&lt;String&gt; {
+    Ok((a + b).to_string())
+}
+
+/// A Python module implemented in Rust.
+#[pymodule]
+fn string_sum(_py: Python, m: &amp;PyModule) -&gt; PyResult&lt;()&gt; {
+    m.add_function(wrap_pyfunction!(sum_as_string, m)?)?;
+    Ok(())
+}
+</code></pre>
+<p>Finally, build your package and install it into the virtual environment:</p>
+<pre><code class="language-bash">maturin develop
+</code></pre>
+<p>Now we're ready to test our new Rust-based package from Python.  Start a Python interactive environment:</p>
+<pre><code class="language-bash">python3
+</code></pre>
+<p>Then, import the new package and run the function:</p>
+<pre><code>&gt;&gt;&gt; import string_sum
+&gt;&gt;&gt; string_sum.sum_as_string(1,1)
+2
+</code></pre>
+<p>Learn more: <a href="https://pyo3.rs/v0.17.1/#using-rust-from-python">https://pyo3.rs/v0.17.1/#using-rust-from-python</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="python-from-rust"><a class="header" href="#python-from-rust">Python from Rust</a></h1>
+<p>If you want to embed Python into a Rust binary, your Python installation must contain a shared library.  For a Debian-based Linux environment, you install this as follows:</p>
+<pre><code class="language-bash">sudo apt install python3-dev
+</code></pre>
+<p>Running Python code from Rust is very straightforward.  First, in an empty directory, create a new Rust project:</p>
+<pre><code class="language-bash">cargo new demo
+
+cd demo
+</code></pre>
+<p>I named my project <code>demo</code>, but that's just an example.</p>
+<p>Add a pyo3 dependency to Cargo.toml:</p>
+<pre><code class="language-properties">[dependencies.pyo3]
+version = &quot;0.17.1&quot;
+features = [&quot;auto-initialize&quot;]
+</code></pre>
+<p>Update <code>src/main.rs</code> to call some methods from the Python <code>sys</code> library:</p>
+<pre><code class="language-rust noplayground">use pyo3::prelude::*;
+use pyo3::types::IntoPyDict;
+
+fn main() -&gt; PyResult&lt;()&gt; {
+    Python::with_gil(|py| {
+        let sys = py.import(&quot;sys&quot;)?;
+        let version: String = sys.getattr(&quot;version&quot;)?.extract()?;
+
+        let locals = [(&quot;os&quot;, py.import(&quot;os&quot;)?)].into_py_dict(py);
+        let code = &quot;os.getenv('USER') or os.getenv('USERNAME') or 'Unknown'&quot;;
+        let user: String = py.eval(code, None, Some(&amp;locals))?.extract()?;
+
+        println!(&quot;Hello {}, I'm Python {}&quot;, user, version);
+        Ok(())
+    })
+}
+</code></pre>
+<p>Compile and run the program:</p>
+<pre><code class="language-bash">cargo run
+</code></pre>
+<p>You'll see something like this:</p>
+<pre><code>Hello jimc, I'm Python 3.10.4 (main, Jun 29 2022, 12:14:53) [GCC 11.2.0]
+</code></pre>
+<hr />
+<p>Learn more:  <a href="https://pyo3.rs/v0.17.1/#using-python-from-rust">https://pyo3.rs/v0.17.1/#using-python-from-rust</a></p>
+<p>Many usage examples:  <a href="https://pyo3.rs/v0.17.1/python_from_rust.html">https://pyo3.rs/v0.17.1/python_from_rust.html</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ascii-table"><a class="header" href="#ascii-table">ASCII Table</a></h1>
+<p><img src="content/../img/ascii_table.jpg" alt="Image" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="utility-functions"><a class="header" href="#utility-functions">Utility Functions</a></h1>
+<h2 id="display-variable-type"><a class="header" href="#display-variable-type">Display Variable Type</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn print_type_of&lt;T&gt;(_: &amp;T) {
+    println!(&quot;{}&quot;, std::any::type_name::&lt;T&gt;())
+}
+<span class="boring">}
+</span></code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>
