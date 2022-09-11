@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Rust Tech Talk</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="what_is_rust">
+					<section data-auto-animate>
+						<h3>What Is Rust?</h3>
+						<img src="img/rustacean.png" />
+					</section>
+					<section data-auto-animate>
+						<h3>What Is Rust?</h3>
+						<small>
+							<blockquote>
+								<p>Rust is a multi-paradigm, general-purpose programming language.</p>
+								<p>Rust emphasizes performance, type safety, and concurrency.</p>
+								<p>Rust enforces memory safety - that is, that all references point to valid memory - without requiring the use of a garbage collector or reference counting present in other memory-safe languages.</p>
+								<p><a href="https://en.wikipedia.org/wiki/Rust_(programming_language)">https://en.wikipedia.org/wiki/Rust_(programming_language)</a></p>
+							</blockquote>
+						</small>
+					</section>
+					<section data-auto-animate>
+						<h3>What Is Rust?</h3>
+						<small>
+							<blockquote>
+								<ul>
+									<li>Performance: no runtime and no garbage collector</li>
+									<li>Reliability: rich type system and ownership model, memory-safety, thread-safety</li>
+									<li>Productivity: comprehensive documentation, useful error messages, and lots of tooling</li>
+								</ul>
+
+								<p>From the Rust language home page</p>
+							</blockquote>
+						</small>
+					</section>
+				</section>
+				<section>
+					<h2>History</h2>
+					<small>
+						<table>
+							<tr>
+								<th>When</th>
+								<th>What</th>
+							</tr>
+							<tr>
+								<td>2006</td>
+								<td>Personal project by Mozilla employee Graydon Hoare</td>
+							</tr>
+							<tr>
+								<td>2006 - 2015</td>
+								<td>Growing pains: language changed dramatically</td>
+							</tr>
+							<tr>
+								<td>2015</td>
+								<td>First stable release: 1.0</td>
+							</tr>
+							<tr>
+								<td>August 2020</td>
+								<td>Rust team affected by Mozilla layoffs</td>
+							</tr>
+							<tr>
+								<td>February 2021</td>
+								<td>Rust Foundation announced; founded by AWS, Huawei, Google, Microsoft, and Mozilla</td>
+							</tr>
+						</table>
+					</small>
+				</section>
+				<section id="setup_getting_started">
+					<section>
+						<h2>Setup</h2>
+					</section>
+					<section>
+						<h2>Cargo</h2>
+					</section>
+					<section>
+						<h2>Crate Registry</h2>
+					</section>
+				</section>
+				<section id="editor_ide_support">
+					<h2>Editor and IDE Support</h2>
+					<table>
+						<tr>
+							<th>IDE</th>
+							<th>Extension / Addon</th>
+						</tr>
+						<tr>
+							<td>Visual Studio Code</td>
+							<td>rust-analyzer</td>
+						</tr>
+						<tr>
+							<td>Eclipse</td>
+							<td>Corrosion</td>
+						</tr>
+						<tr>
+							<td>IntelliJ</td>
+							<td>IntelliJ Rust</td>
+						</tr>
+					</table>
+				</section>
+				<section id="language-features">
+					<section>
+						<h2>Language Features</h2>
+					</section>
+					<section id="data_object_types"">
+						<h2>Data and Object Types</h2>
+						<ul>
+							<li>Declarations</li>
+							<li>Scalar: Integers, Floating Point, Char, and Bool</li>
+							<li>Compound: Arrays and Tuples</li>
+							<li>Custom: Enums and Structures</li>
+							<li>Std library types (e.g., String)</li>
+							<li>Std misc (e.g., Threads, Channels, and File I/O)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Flow Control</h2>
+
+						<ul>
+							<li>if/else</li>
+							<li>loop</li>
+							<li>while</li>
+							<li>for and range</li>
+							<li>match</li>
+						</ul>
+
+					</section>
+					<section>
+						<h2>Functions</h2>
+					</section>
+					<section>
+						<h2>Methods</h2>
+					</section>
+					<section>
+						<h2>Traits</h2>
+					</section>
+					<section id=" ownership">
+						<h2>Ownership</h2>
+						<ul>
+							<li>Resource Acquisition Is Initialization (RAII)</li>
+							<li>Moves (transferring ownership)</li>
+							<li>Borrowing (passing by reference)</li>
+							<li>Lifetimes</li>
+						</ul>
+					</section>
+					<section id="modules_crates">
+						<h2>Modules</h2>
+					</section>
+					<section>
+						<h2>Crates</h2>
+					</section>
+					<section>
+						<h2>Generics</h2>
+					</section>
+					<section>
+						<h2>Macros</h2>
+					</section>
+					<section>
+						<h2>Error Handling</h2>
+						<p>There is no try/catch!</p>
+						<ul>
+							<li>panic! (unrecoverable conditions)</li>
+							<li>Option</li>
+							<li>Result</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Testing</h2>
+						<p>Unit test support is baked in.</p>
+					</section>
+					<section>
+						<h2>Unsafe Code</h2>
+					</section>
+				</section>
+				<section>
+					<section data-auto-animate>
+						<h2>Language Interoperability</h2>
+					</section>
+					<section id="c_interop" data-auto-animate>
+						<h2>Language Interoperability</h2>
+						<h3>C Interop</h3>
+					</section>
+					<section id="pyo3" data-auto-animate>
+						<h2>Language Interoperability</h2>
+						<h3>PyO3</h3>
+						<p>PyO3 User Guide: <a href="https://pyo3.rs">https://pyo3.rs</a></p>
+					</section>
+				</section>
+				<section>
+					<h2>Rust in Action</h2>
+					<small>
+						<table>
+							<tr>
+								<th>Name</th>
+								<th>Description</th>
+							</tr>
+							<tr>
+								<td>Rust In the Linux Kernel</td>
+								<td>Upcoming support for kernel modules. (Linux 6.0?)</td>
+							</tr>
+							<tr>
+								<td>Redox</td>
+								<td>Operating system written in Rust</td>
+							</tr>
+							<tr>
+								<td>Android Open Source Project</td>
+								<td>Google has announced support for Rust in the OS.</td>
+							</tr>
+							<tr>
+								<td>Bottlerocket</td>
+								<td>Container distribution from Amazon Web Services with a build system written mostly in Rust.</td>
+							</tr>
+							<tr>
+								<td>mdbook</td>
+								<td>Documentation generator. Heavily used by the Rust team, and others.</td>
+							</tr>
+						</table>
+					</small>
+				</section>
+				<section id="reference-and-documentation">
+					<h3>Reference and Documentation</h3>
+					<small>
+						<table>
+							<tr>
+								<th>Name</th>
+								<th>Link</th>
+							</tr>
+							<tr>
+								<td>The Little Book of Rust Books</td>
+								<td><a href="https://lborb.github.io/book/">https://lborb.github.io/book/</a></td>
+							</tr>
+							<tr>
+								<td>Rust by Example</td>
+								<td><a href="https://doc.rust-lang.org/stable/rust-by-example/">https://doc.rust-lang.org/stable/rust-by-example/</a></td>
+							</tr>
+							<tr>
+								<td>"The Book"</td>
+								<td><a href="https://doc.rust-lang.org/book/">https://doc.rust-lang.org/book/</a></td>
+							</tr>
+							<tr>
+								<td>The Rust Reference</td>
+								<td><a href="https://doc.rust-lang.org/reference/">https://doc.rust-lang.org/reference/</a></td>
+							</tr>
+							<tr>
+								<td>Rust Design Patterns</td>
+								<td><a href="https://rust-unofficial.github.io/patterns/">https://rust-unofficial.github.io/patterns/</a></td>
+							</tr>
+						</table>
+					</small>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+			});
+
+			// Set the default background image
+			for (var slide of document.getElementsByTagName('section')) {
+				if (!(slide.getAttribute('data-background') || slide.getAttribute('data-background-video') || slide.getAttribute('data-background-iframe') || slide.getAttribute('data-background-image'))) {
+					slide.setAttribute('data-background-image', 'img/default-background.png')
+				}
+			}
+		</script>
+	</body>
+
+</html>
