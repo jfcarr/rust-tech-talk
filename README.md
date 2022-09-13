@@ -6,7 +6,7 @@ This repo contains supporting material for the Rust tech talk, for the Dayton Dy
 
 Directory | Description
 ---------|----------
-docs/ | Rust Language Examples documentation (published).
+docs/ | Rust Language Examples documentation (published at [https://jfcarr.github.io/rust-tech-talk/](https://jfcarr.github.io/rust-tech-talk/)).
 rust_language_examples_mdbook | Rust Language Examples mdbook project.
 slides/ | Slide deck, using Reveal.js.  If you want to view it, open slides/index.html in your browser.
 src/interop_c | Sample code for "C Interop" section.
