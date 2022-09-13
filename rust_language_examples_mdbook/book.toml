@@ -6,7 +6,7 @@ src = "src"
 title = "Rust Language Examples"
 
 [build]
-build-dir = "../docs"
+build-dir = "../www/book"
 create-missing = true
 
 [output.html.playground]
