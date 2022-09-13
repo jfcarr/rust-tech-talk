@@ -2,8 +2,6 @@
 
 A `trait` is a collection of methods defined for an unknown type: `Self`.  They define functionality meant to be shared with multiple types, similar to interfaces and abstract classes.
 
-Without a trait, using associated functions instead:
-
 ```rust,editable
 trait DataTrait {
 	fn new(x: f64, y: f64) -> Self;
