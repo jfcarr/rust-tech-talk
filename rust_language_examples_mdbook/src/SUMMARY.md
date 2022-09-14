@@ -3,7 +3,7 @@
   - [Setup](./content/getting_started/setup.md)
   - [Cargo](./content/getting_started/cargo.md)
   - [Crates Registry](./content/getting_started/crates_registry.md)
-- [Declarations and Data Types](./content/declarations_and_data_types/declarations_and_data_types.md)
+- [Data and Object Types](./content/declarations_and_data_types/declarations_and_data_types.md)
   - [Declarations](./content/declarations_and_data_types/declarations.md)
   - [Scalar Types](./content/declarations_and_data_types/scalar_types.md)
   - [Compound Types](./content/declarations_and_data_types/compound_types/compound_types.md)
