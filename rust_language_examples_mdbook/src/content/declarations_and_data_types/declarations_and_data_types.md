@@ -1,1 +1,1 @@
-# Declarations and Data Types
+# Data and Object Types
