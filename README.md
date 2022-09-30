@@ -2,6 +2,8 @@
 
 This repo contains supporting material for the Rust tech talk, for the Dayton Dynamic Languages group.
 
+> Do you see something that's incorrect? Missing? Unclear?  [Open an issue](https://github.com/jfcarr/rust-tech-talk/issues)!
+
 ## Contents
 
 Directory | Description
