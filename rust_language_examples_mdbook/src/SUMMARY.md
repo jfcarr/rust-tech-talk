@@ -35,7 +35,7 @@
 - [Error Handling](./content/error_handling/error_handling.md)
   - [panic](./content/error_handling/panic.md)
   - [Option](./content/error_handling/option.md)
-  - [Result](./content/result.md)
+  - [Result](./content/error_handling/result.md)
 - [Testing](./content/testing.md)
 - [Unsafe Code](./content/unsafe_code.md)
 - [Language Interoperability](./content/language_interoperability/language_interoperability.md)
