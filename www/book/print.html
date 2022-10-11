@@ -1172,12 +1172,14 @@ fn test_add() {
 </code></pre>
 <p>Running <code>cargo test</code> in the project root directory will invoke all of the test functions, and display the results.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="unsafe-code"><a class="header" href="#unsafe-code">Unsafe Code</a></h1>
-<p>The default behavior of Rust is to provide as many safety checks-and-balances as possible, to protect you from unsafe code.  But, sometimes it's necessary to bypass these protections, for things like:</p>
-<ul>
-<li>dereferencing raw pointers</li>
-<li>calling functions over FFI</li>
-<li>accessing hardware addresses directly, for IOT/embedded programming</li>
-</ul>
+<p>The default behavior of Rust is to provide as many safety checks-and-balances as possible, to protect you from unsafe code.  For example, if you try to derefence a raw pointer, the Rust compiler disallows it:</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+    let raw_p: *const u32 = &amp;10;
+
+	assert!(*raw_p == 10);
+}
+</code></pre></pre>
+<p>But, sometimes it's necessary to bypass these protections, not only for raw pointers, but also for operations like calling functions over FFI, and accessing hardware addresses directly (for IoT/embedded programming).</p>
 <p>To write unsafe code, you simply wrap the code in an <code>unsafe</code> block, like this:</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main() {
     let raw_p: *const u32 = &amp;10;
@@ -1187,7 +1189,12 @@ fn test_add() {
     }
 }
 </code></pre></pre>
-<p>Learn more:  <a href="https://doc.rust-lang.org/stable/rust-by-example/unsafe.html">https://doc.rust-lang.org/stable/rust-by-example/unsafe.html</a></p>
+<p>An unsafe wrapper informs the Rust compiler that you know what you're doing, and to turn off its safety checks.</p>
+<p>Learn more:</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/stable/rust-by-example/unsafe.html">https://doc.rust-lang.org/stable/rust-by-example/unsafe.html</a></li>
+<li><a href="https://doc.rust-lang.org/stable/book/ch19-01-unsafe-rust.html">https://doc.rust-lang.org/stable/book/ch19-01-unsafe-rust.html</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="language-interoperability"><a class="header" href="#language-interoperability">Language Interoperability</a></h1>
 <p>Rust supports language interoperability in a couple of ways:</p>
 <ul>
