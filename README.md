@@ -11,6 +11,7 @@ Directory | Description
 rust_language_examples_mdbook | Rust Language Examples mdbook project.
 src/interop_c | Sample code for "C Interop" section.
 src/library_crate | Sample code for "Crates" section.
+src/modules | Samples code for "Modules" section.
 src/pyo3/1_rust_from_python | Sample code for "Rust from Python" section.
 src/pyo3/2_python_from_rust | Sample code for "Python from Rust" section.
 src/testing | Sample code for "Testing" section.
